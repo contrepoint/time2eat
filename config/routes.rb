@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'layouttest/newgroup' => 'layouttest#group'
   get 'layouttest/addquestion' => 'layouttest#add_question'
   get 'layouttest/voting' => 'layouttest#voting'
+  get 'layouttest/voting/result' => 'layouttest#voting_result'
+  get 'layouttest/search/result' => 'layouttest#search_result'
 
   #### for layout test
 
