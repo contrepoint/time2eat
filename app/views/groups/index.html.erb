@@ -1,0 +1,12 @@
+<div class='container'>
+	You are a member of <%= pluralize(@groups.count, 'group') %>.
+
+  <ul>
+		<% @groups.each do |g| %>
+			<li><%= link_to g.name, group_path(g.id) %></li>
+			<ul>
+				<li><%= link_to "Create Question", new_group_question_path(g.id) %></li>
+			</ul>
+		<% end %>
+  </ul>
+</div>

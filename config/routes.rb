@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :groups, only: [:create, :new, :show]
+
+  resources :groups, only: [:create, :new, :show, :index] do
+  	resources :questions, only: [:create, :new]
+  end
   devise_for :users
   root 'home#index'
 
