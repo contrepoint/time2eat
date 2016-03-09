@@ -1,0 +1,8 @@
+<div class='container'>
+	Group Name: <%= @group.name %><br>
+	Group Description: <%= @group.description %><br><br>
+	Group Members:<br>
+		<% @group.users.each do |m| %>
+			<%= m.name %><br>
+		<% end %>
+</div>
