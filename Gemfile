@@ -18,7 +18,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'faker'
 
 # byebug
-gem 'byebug'
+#gem 'byebug'
 
 # Devise for user authentication
 gem 'devise'
