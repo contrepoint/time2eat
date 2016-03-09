@@ -23,6 +23,10 @@ gem 'faker'
 # Devise for user authentication
 gem 'devise'
 
+
+# Figaro
+gem "figaro"
+ 
 # Bootstrap
 gem 'bootstrap-sass'
 
