@@ -16,3 +16,5 @@
 //= require bootstrap-sprockets
 //= require bootstrap/dropdown
 //= require turbolinks
+//= require jquery-ui
+//= require autocomplete-rails
