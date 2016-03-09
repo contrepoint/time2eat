@@ -26,6 +26,8 @@ development:
   database: time2eat_development
   #username: manjarb
   #password: 1234
+  # username: manjarb
+  # password: 1234
 
 
   # The specified database role being used to connect to postgres.
