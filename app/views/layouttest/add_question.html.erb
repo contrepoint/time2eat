@@ -1,44 +1,51 @@
 <div class="container">
   <div class="signup-box">
-    <h1>Group</h1>
+    <h1>Group Name</h1>
     <br>
     <form class="form-horizontal">
       <div class="form-group">
-        <label for="inputEmail3" class="col-sm-2 control-label">Group Name:</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputEmail3" placeholder="group name">
+        <label for="inputEmail3" class="col-sm-3 control-label">Question</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="inputEmail3" placeholder="Question">
         </div>
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2 control-label">Description</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control"  placeholder="description">
+        <label class="col-sm-3 control-label">Quention Type</label>
+        <div class="col-sm-9">
+          <select class="form-control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+
         </div>
       </div>
       <div class="form-group">
-        <label class="col-sm-2 control-label">Member</label>
-        <div class="col-sm-10">
-          <buttion class="btn btn-lg btn-info" data-toggle="modal" data-target="#myModal">Add member by email or username</buttion>
+        <label class="col-sm-3 control-label">Question options</label>
+        <div class="col-sm-9">
+
+          <div class="alert alert-info" role="alert">Q1</div>
+          <div class="alert alert-info" role="alert">Q2</div>
+          <div class="alert alert-info" role="alert">Q3</div>
+
+          <hr>
+
+          <buttion class="btn btn-lg btn-info" data-toggle="modal" data-target="#myModal">Add another question options</buttion>
         </div>
       </div>
 
-
+      <hr>
 
       <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-success">Create</button>
+        <div class="col-sm-offset-3 col-sm-9">
+          <button type="submit" class="btn btn-success">Create question</button>
         </div>
       </div>
     </form>
 
-    <hr>
-    <div class="social-bt-sign-box">
-      <a href="#" class="btn btn-lg btn-social btn-facebook">
-        <i class="fa fa-facebook"></i>
-        Sign in with Facebook
-      </a>
-    </div>
 
   </div>
 
@@ -64,7 +71,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Add new user to this group</button>
+        <button type="button" class="btn btn-success">Add new question </button>
       </div>
     </div>
   </div>

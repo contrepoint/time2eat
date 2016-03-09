@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get 'layouttest/signup' => 'layouttest#signup'
   get 'layouttest/signin' => 'layouttest#login'
   get 'layouttest/newgroup' => 'layouttest#group'
+  get 'layouttest/addquestion' => 'layouttest#add_question'
 
 end
