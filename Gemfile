@@ -16,6 +16,9 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Devise for user authentication
 gem 'devise'
+
+# Figaro
+gem "figaro"
  
 # Bootstrap
 gem 'bootstrap-sass'
