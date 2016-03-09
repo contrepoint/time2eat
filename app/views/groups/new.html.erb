@@ -8,7 +8,8 @@
 		<%= f.text_field :description, placeholder: "Describe your group" %><br>
 
 		<%= f.label :add_member_emails %>:
-		<%= f.autocomplete_field :user_email, autocomplete_user_email_groups_path %><br>
+		<%= f.autocomplete_field :user_email, autocomplete_user_email_groups_path ,
+		input_html: {'data-id-element' => '#group_user_email' }%><br>
 		(separate member emails with a comma. eg: a@a.com, b@b.com)<br><br>
 
 		<%= button_tag(type: "submit", class: "btn") do %>
