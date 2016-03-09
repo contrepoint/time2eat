@@ -20,10 +20,14 @@ class GroupsController < ApplicationController
   	@group = Group.find(params[:id])
   end
 
+  def index
+  	@groups = current_user.groups
+  end
+
   private
 
-  def group_params
-  	params.require(:group).permit(:name, :description)
-  end
+	  def group_params
+	  	params.require(:group).permit(:name, :description)
+	  end
 
 end

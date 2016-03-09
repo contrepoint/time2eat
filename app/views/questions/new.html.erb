@@ -1,0 +1,23 @@
+<div class='container'>
+	<%= form_for :question, url: group_questions_path do |f| %>
+		<%= f.label :question_text %>:
+		<%= f.text_field :question_text %><br>
+
+		<%= f.label :question_options %>:
+		<%= text_field_tag :question_options %><br>
+		(separate question options with a comma. eg: steamboat, chinese food, japanese food)<br><br>
+
+		<%= f.label :question_type %>:
+		<%= f.radio_button :question_type, "Budget" %>
+		<%= f.label :Budget %>
+		<%= f.radio_button :question_type, "Type of Food" %>
+		<%= f.label :type_of_food %>
+		<%= f.radio_button :question_type, "Location" %>
+		<%= f.label :location %><br><br>
+
+		<%= button_tag(type: 'submit', class: 'btn') do %>
+			<span class='glyphicon glyphicon-check'></span> Create Question
+		<% end %>
+
+	<% end %>
+</div>
