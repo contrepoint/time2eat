@@ -59,9 +59,8 @@ ActiveRecord::Schema.define(version: 20160308093725) do
     t.string   "email"
     t.string   "name"
     t.string   "role"
-    t.integer  "question_options_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users_groups", force: :cascade do |t|
@@ -73,7 +72,7 @@ ActiveRecord::Schema.define(version: 20160308093725) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer  "voter_id"
+    t.integer  "user_id"
     t.integer  "question_options_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
