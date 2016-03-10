@@ -1,6 +1,15 @@
 <div class='container'>
 	<%= form_for :group, url: groups_path do |f| %>
 
+		<% if @errors.any? %>
+    	The form contains <%= pluralize(@errors.count, "error") %>.
+    	<ul>
+    		<% @errors.each do |e| %>
+      		<li><%= e %></li>
+    		<% end %>
+    	</ul>
+  	<% end %>
+
 		<%= f.label :name_of_group %>:
 		<%= f.text_field :name %><br>
 

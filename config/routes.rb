@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :groups, only: [:create, :new, :show, :index] do
   	resources :questions, only: [:create, :new]
+  	resources :votes, only: [:create, :new, :index]
   end
   devise_for :users
   root 'home#index'

@@ -1,0 +1,20 @@
+<div class='container'>
+
+  <%= form_for :vote, url: group_votes_path do |f| %>
+
+  	<% @questions.each do |q| %>
+  		<%= q.question_text %><br>
+  			<% q.question_options.each do |o| %>
+  				<%= f.radio_button :question_option_id, o.id, name: "question[#{q.id}]" %>
+
+  				<%= o.option_text %>
+  			<% end %>
+  			<br><br>
+  	<% end %>
+
+  	<%= button_tag(type: 'submit', class: 'btn') do %>
+  		<span class='glyphicon glyphicon-check'></span> Submit Vote
+  	<% end %>
+
+  <% end %>
+</div>

@@ -9,11 +9,13 @@ class GroupsController < ApplicationController
 			end
 			redirect_to root_path
 		else
+			@errors = group.errors.full_messages
 			render 'new'
 		end
   end
 
   def new
+  	@errors = []
   end
 
   def show

@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   def new
+  	@errors = []
   end
 
   def create
@@ -12,6 +13,7 @@ class QuestionsController < ApplicationController
   		end
   		redirect_to group_path(q.group_id)
   	else
+  		@errors = q.errors.full_messages
   		render 'new'
   	end
   end

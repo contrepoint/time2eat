@@ -1,11 +1,22 @@
 <div class='container'>
 	<%= form_for :question, url: group_questions_path do |f| %>
+
+  	<% if @errors.any? %>
+    	The form contains <%= pluralize(@errors.count, "error") %>.
+    	<ul>
+    		<% @errors.each do |e| %>
+      		<li><%= e %></li>
+    		<% end %>
+    	</ul>
+  	<% end %>
+
 		<%= f.label :question_text %>:
 		<%= f.text_field :question_text %><br>
 
 		<%= f.label :question_options %>:
 		<%= text_field_tag :question_options %><br>
 		(separate question options with a comma. eg: steamboat, chinese food, japanese food)<br><br>
+		<!-- need to have a validation on question controller side for question_options field -->
 
 		<%= f.label :question_type %>:
 		<%= f.radio_button :question_type, "Budget" %>
