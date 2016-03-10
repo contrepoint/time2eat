@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'layouttest/voting' => 'layouttest#voting'
   get 'layouttest/voting/result' => 'layouttest#voting_result'
   get 'layouttest/search/result' => 'layouttest#search_result'
+  get 'layouttest/search/details' => 'layouttest#search_details'
 
   #### for layout test
 
