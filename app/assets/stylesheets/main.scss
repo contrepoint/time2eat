@@ -10,6 +10,20 @@
     text-align: center;
   }
 }
+body {
+  background-color: #f5f5f5;
+}
+
+img {
+  max-width: 100%;
+}
+h1,h2,h3,h4 {
+  margin: 0;
+}
+.navbar {
+  margin-bottom: 0;
+  background-color: #fff;
+}
 .btn-facebook {
   color: #fff;
   background-color: #3b5998;
@@ -81,4 +95,83 @@
 .small-container {
   max-width: 730px;
   margin: 0 auto;
+}
+.restaurant-details-banner-section {
+  padding: 60px 0;
+  text-align: center;
+  background: image-url("Good_Food_Display_-_NCI_Visuals_Online.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+  z-index: -2;
+}
+.thumb-image {
+  width: 160px;
+}
+.logo-box {
+  margin: 0 auto;
+}
+.black-filter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.restaurant-details-content-section {
+  background-color: #f5f5f5;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.restaurant-details-content-name-box,
+.restaurant-details-content-details-box{
+  background-color: #ffffff;
+  border-radius: 3px;
+  border: 1px solid #ededed;
+  padding: 25px;
+}
+.restaurant-details-content-name-box {
+  h2 {
+    background-color: #78cfcf;
+    color: #fff;
+    margin: -25px -25px 25px;
+    padding: 12px 15px;
+    font-size: 22px;
+    font-weight: 600;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+}
+.restaurant-details-content-details-box {
+  h3 {
+    background: #f8f8f8;
+    margin: -25px -25px 25px;
+    padding: 15px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    font-size: 18px;
+  }
+  table {
+    width: 100%;
+    max-width: 100%;
+  }
+  td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+  }
+}
+
+#map {
+  height: 300px;
+  width: 100%;
 }

@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar">
   <div class="container">
     <div class="navbar-header">
       <%= link_to 'TimeToEat', root_path, class: 'navbar-brand' %>
@@ -45,6 +45,8 @@
   </div>
 </nav>
 <%= yield %>
+
+<%= yield :footer_script %>
 
 </body>
 </html>
