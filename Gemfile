@@ -23,6 +23,11 @@ gem 'faker'
 # Devise for user authentication
 gem 'devise'
 
+#autocomplete 
+gem 'rails4-autocomplete'
+
+# jQuery UI dependency.
+gem 'jquery-ui-rails'
 
 # Figaro
 gem "figaro"

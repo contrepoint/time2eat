@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :groups, only: [:create, :new, :show, :index] do
+  	get :autocomplete_user_email	, :on => :collection
   	resources :questions, only: [:create, :new]
   	resources :votes, only: [:create, :new, :index]
   end
