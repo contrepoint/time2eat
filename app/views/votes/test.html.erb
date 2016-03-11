@@ -1,13 +1,15 @@
-<div class='container'>
 
-	<% @x.businesses.each do |b| %>
+<div class='container'>
+	<% @x.each do |b| %>
+		<%= image_tag b.image_url %><br>
 		<%= link_to b.name, b.url %><br>
 		<%= image_tag b.rating_img_url %><%= pluralize(b.review_count, 'review') %><br>
-		Phone Number: <%= b.phone %><br>
-		About: <%= b.snippet_text %><br>
-		Address: <%= b.location.display_address %><br>
-		<!-- < %= "Url: " b.url if b.url %> -->
-		Categories: <br><br>
+		<%= b.location.address %><br>		<!-- need to reformat the address. -->
+		<%= b.snippet_text%><br>
+		<%= b.phone %><br>
 	<% end %>
+	<div id="map_wrapper">
+    <div id="map_canvas" class="mapping"></div>
+	</div>
 
 </div>

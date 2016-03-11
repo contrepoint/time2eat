@@ -17,9 +17,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # faker
 gem 'faker'
 
-# byebug
-#gem 'byebug'
-
 # Devise for user authentication
 gem 'devise'
 
@@ -34,7 +31,6 @@ gem "figaro"
 
 # Bootstrap
 gem 'bootstrap-sass'
-
 gem 'jquery-turbolinks'
 
 # Use jquery as the JavaScript library
@@ -45,6 +41,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'gon'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
