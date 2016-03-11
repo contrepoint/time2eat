@@ -379,3 +379,39 @@ img {
     color: #fff;
   }
 }
+.testimonial-section {
+  background-color: #ffffff;
+  padding: 60px 0;
+
+  h1 {
+    text-align: center;
+  }
+  .bx-wrapper .bx-viewport {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+  }
+}
+.bx-wrapper {
+  .slider-index-box {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.slider-index-box {
+  .media {
+    width: 100%;
+  }
+}
+.footer-copyright {
+  padding: 20px 0;
+  background: #191a18;
+  color: #666666;
+  font-size: 14px;
+  p {
+    float: left;
+  }
+}

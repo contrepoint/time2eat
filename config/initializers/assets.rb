@@ -21,3 +21,6 @@ Rails.application.config.assets.precompile += %w( starter.png )
 
 Rails.application.config.assets.precompile += %w( dinner-plate.png )
 
+Rails.application.config.assets.precompile += %w( jquery.bxslider )
+Rails.application.config.assets.precompile += %w( jquery.bxslider.min )
+

@@ -1,3 +1,7 @@
+<% content_for :header_import do %>
+    <%= stylesheet_link_tag 'jquery.bxslider', media: 'all' %>
+<% end %>
+
 <section class="home-banner-section">
   <div class="container">
     <h1>Time to eat</h1>
@@ -103,3 +107,69 @@
     </div>
   </div>
 </section>
+
+<section class="testimonial-section">
+  <div class="container">
+    <h1>Testimonial</h1>
+    <br>
+    <br>
+    <div class="testimonial-slider-box">
+      <ul class="bxslider">
+        <li>
+          <div class="slider-index-box">
+            <div class="testimonial-slide-each-box">
+
+                <div class="col-md-4">
+                  <div class="image-box pull-left">
+                    <%= image_tag("starter.png") %>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="content-box pull-left">
+                    <p>
+                      <strong>Nawe</strong>
+                      <br>
+                      <br>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi..
+                    </p>
+
+                  </div>
+                </div>
+
+
+            </div>
+          </div>
+        </li>
+        <li>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copyright">
+    <div class="container">
+      <p>Copyright 2016</p>
+
+      <!-- end .footer-social -->
+    </div>
+  </div>
+</footer>
+
+<% content_for :footer_script do %>
+
+    <%= javascript_include_tag 'jquery.bxslider.min' %>
+
+    <script>
+
+      $('.bxslider').bxSlider({
+        minSlides: 2,
+        maxSlides: 2,
+        slideWidth: 480,
+        slideMargin: 10
+      });
+
+    </script>
+<% end %>
