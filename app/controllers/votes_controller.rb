@@ -29,7 +29,14 @@ class VotesController < ApplicationController
   	@total_votes = UsersGroup.where(group_id: params[:group_id], voted: true).count
   end
 
-  def edit
+  def test
+  	params = { term: 'steamboat', }
+  	# location='Petaling Jaya'
+  	@x = Yelp.client.search('kuala lumpur', params)
+    byebug
+  end
+
+  def test2
   end
 
 end

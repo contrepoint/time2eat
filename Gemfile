@@ -23,7 +23,7 @@ gem 'faker'
 # Devise for user authentication
 gem 'devise'
 
-#autocomplete 
+#autocomplete
 gem 'rails4-autocomplete'
 
 # jQuery UI dependency.
@@ -31,7 +31,7 @@ gem 'jquery-ui-rails'
 
 # Figaro
 gem "figaro"
- 
+
 # Bootstrap
 gem 'bootstrap-sass'
 
@@ -70,3 +70,4 @@ group :development do
   gem 'spring'
 end
 
+gem 'yelp', require: 'yelp'

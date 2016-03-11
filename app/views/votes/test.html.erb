@@ -1,0 +1,13 @@
+<div class='container'>
+
+	<% @x.businesses.each do |b| %>
+		<%= link_to b.name, b.url %><br>
+		<%= image_tag b.rating_img_url %><%= pluralize(b.review_count, 'review') %><br>
+		Phone Number: <%= b.phone %><br>
+		About: <%= b.snippet_text %><br>
+		Address: <%= b.location.display_address %><br>
+		<!-- < %= "Url: " b.url if b.url %> -->
+		Categories: <br><br>
+	<% end %>
+
+</div>
