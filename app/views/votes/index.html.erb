@@ -1,30 +1,63 @@
-<div class='container'>
-	<% if @voted %>
-		You have voted.<br>
-	<% else %>
-		You have not yet voted! Please vote <%= link_to 'here.', new_group_vote_path(params[:group_id]) %><br>
-	<% end %>
+<div class="vote-result-container">
+  <div class='container'>
+    <div class="signup-box">
+      <p class="text-center">
+        <strong>
+          <% if @voted %>
+            You have voted. <br>
+          <% else %>
+            You have not yet voted! Please vote <%= link_to 'here.', new_group_vote_path(params[:group_id]) %><br>
+          <% end %>
+        </strong>
+      </p>
+      <br>
+      <h2 class="text-center">Current Voting Results ( <%= pluralize(@total_votes, 'person') %> )</h2>
+      <br>
+      <br>
+      <ul class="list-group">
+        <% @questions.each do |q| %>
+            <li class="list-group-item">
+              <h3 class="text-center"><%= q.question_text %></h3>
+              <br>
+              <br>
+              <ul class="list-group">
+                <% q.question_options.highest_vote_count.each do |o| %>
+                  <li class="list-group-item">
+                    <strong><%= o.option_text %></strong> - <%= pluralize(o.votes.count, 'vote') %>.<br>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
+        <% end %>
+      </ul>
+      <br>
+      <%= form_for :search, url: searches_path ,:html => {:class => 'form-horizontal'} do |f| %>
 
-	<%= pluralize(@total_votes, 'person') %> voted.<br><br>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Search for</label>
+          <div class="col-sm-10">
+            <%= f.text_field :search_for,class:"form-control", :value => "sample params" %>
+          </div>
+        </div>
 
-	<% @questions.each do |q| %>
-		<%= q.question_text %><br>
-			<% q.question_options.highest_vote_count.each do |o| %>
-				<%= o.option_text %> - <%= pluralize(o.votes.count, 'vote') %>.<br>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Location for</label>
+          <div class="col-sm-10">
+            <%= f.text_field :location,class:"form-control", :value => "sample location" %>
+          </div>
+        </div>
 
-			<% end %>
-			<br><br>
-	<% end %>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= button_tag(type: "submit", class: "btn btn-success") do %>
+              <span class='glyphicon glyphicon-check'></span> Search
+            <% end %>
+          </div>
+        </div>
+      <% end %>
 
-	<%= form_for :search, url: searches_path do |f| %>
-		<%= f.label :search_for %>:
-		<%= f.text_field :search_for, :value => "sample params" %>
-		<%= f.label :located_near %>
-		<%= f.text_field :location, :value => "sample location" %>
+    </div>
 
-		<%= button_tag(type: "submit", class: "btn") do %>
-			<span class='glyphicon glyphicon-check'></span> Search
-		<% end %>
-	<% end %>
+  </div>
 
-<div>
+</div>
