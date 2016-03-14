@@ -5,11 +5,43 @@
 .signup-box {
   max-width: 768px;
   margin: 0 auto;
-  padding-bottom: 60px;
+  background-color: #ffffff;
+  padding: 60px 30px;
   h1 {
     text-align: center;
   }
+  margin-top: 60px;
+  margin-bottom: 60px;
+  border-radius: 12px;
+  border: 1px solid #a9a9a9;
 }
+body {
+  background-color: #f5f5f5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+h1,h2,h3,h4 {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+}
+.navbar {
+  margin-bottom: 0;
+  background-color: #fff;
+}
+
+.transition-add {
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
 .btn-facebook {
   color: #fff;
   background-color: #3b5998;
@@ -81,4 +113,310 @@
 .small-container {
   max-width: 730px;
   margin: 0 auto;
+}
+.restaurant-details-banner-section {
+  padding: 60px 0;
+  text-align: center;
+  background: image-url("Good_Food_Display_-_NCI_Visuals_Online.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+  z-index: -2;
+}
+.thumb-image {
+  width: 160px;
+}
+.logo-box {
+  margin: 0 auto;
+}
+.black-filter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.restaurant-details-content-section {
+  background-color: #f5f5f5;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.restaurant-details-content-name-box,
+.restaurant-details-content-details-box{
+  background-color: #ffffff;
+  border-radius: 3px;
+  border: 1px solid #ededed;
+  padding: 25px;
+}
+.restaurant-details-content-name-box {
+  h2 {
+    background-color: #e00000;
+    color: #fff;
+    margin: -25px -25px 25px;
+    padding: 12px 15px;
+    font-size: 22px;
+    font-weight: 600;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+}
+.restaurant-details-content-details-box {
+  h3 {
+    background: #f8f8f8;
+    margin: -25px -25px 25px;
+    padding: 15px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    font-size: 18px;
+  }
+  table {
+    width: 100%;
+    max-width: 100%;
+  }
+  td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+  }
+}
+
+#map {
+  height: 300px;
+  width: 100%;
+}
+
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.home-banner-section {
+  padding-top: 140px;
+  padding-bottom: 120px;
+  background: image-url("spicy-grilled-non-vegetarian-meat-food.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+  h1 {
+    font-size: 48px;
+  }
+  .btn {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #fff;
+    &:hover {
+      background-color: #ffffff;
+    }
+  }
+}
+
+.call-to-action-section {
+  position: relative;
+  margin: -30px 0 30px 0;
+  height: 130px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  background: #f2f2f2;
+  color: #343434;
+
+  h4 {
+    font-size: 24px;
+  }
+
+}
+.css-table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.call-to-action-section .text {
+  padding: 0 40px 0 160px;
+  width: 100%;
+  height: 100%;
+}
+.call-to-action-section .icon {
+  position: absolute;
+  display: block;
+  width: 130px;
+  height: 100%;
+  -webkit-border-radius: 6px 0 0 6px;
+  border-radius: 6px 0 0 6px;
+  background: #e00000;
+  vertical-align: middle;
+  text-align: center;
+  padding: 30px;
+}
+
+.call-to-action-section .icon img {
+  //margin-top: 35px;
+}
+.css-table {
+  display: table;
+}
+.call-to-action-section .text h4 {
+  font-weight: bold;
+  margin: 0;
+  padding-bottom: 10px;
+}
+.call-to-action-section .text p {
+  padding-right: 30px;
+}
+.call-to-action-section .text a {
+  margin-left: 30px;
+  float: left;
+}
+
+.btn-default-red {
+  padding: 5px 15px 5px 15px;
+  border: 1px solid #e00000;
+  background: transparent;
+  color: #e00000;
+  border-radius: 7px;
+  font-size: 16px;
+}
+
+.btn-default-red > .fa {
+  font-size: 17px;
+  padding: 5px;
+}
+
+
+.btn .fa {
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.btn-default-red-inverse {
+  padding: 5px 15px 5px 10px;
+  border: 1px solid #e00000;
+  background: #e00000;
+  color: #fff;
+  border-radius: 7px;
+  font-size: 16px;
+}
+.btn-default-red-inverse > .fa {
+  font-size: 20px;
+  padding: 5px;
+}
+.call-to-action-section-container {
+  background-color: #fff;
+}
+
+.category-boxes-icons {
+  position: relative;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.category-boxes-icons .category-boxes-item {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  height: 190px;
+  width: 100%;
+  padding: 0;
+  border: 1px solid transparent;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  background: #fff;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.category-boxes-icons .category-boxes-item figure {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.category-boxes-icons .category-boxes-item figure h4 {
+  padding: 14px 5px;
+  margin: 0;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  background: rgba(52, 52, 52, .7);
+  z-index: 10;
+}
+.category-boxes-icons .category-boxes-item figure img {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  transform: scale(1.0);
+  -webkit-transform: scale(1.0);
+  transition: all.4s ease;
+  -webkit-transition: all .4s ease;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.category-section {
+  background-color: #ffffff;
+}
+.about-us-section {
+  padding: 80px 0;
+
+  .btn {
+    border: 1px solid #e00000;
+    background: #e00000;
+    color: #fff;
+  }
+}
+.testimonial-section {
+  background-color: #ffffff;
+  padding: 60px 0;
+
+  h1 {
+    text-align: center;
+  }
+  .bx-wrapper .bx-viewport {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+  }
+}
+.bx-wrapper {
+  .slider-index-box {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.slider-index-box {
+  .media {
+    width: 100%;
+  }
+}
+.footer-copyright {
+  padding: 20px 0;
+  background: #191a18;
+  color: #666666;
+  font-size: 14px;
+  p {
+    float: left;
+  }
 }
