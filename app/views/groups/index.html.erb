@@ -1,14 +1,22 @@
 <div class='container'>
-	You are a member of <%= pluralize(@groups.count, 'group') %>.
 
-  <ul>
-		<% @groups.each do |g| %>
-			<li><%= link_to g.name, group_path(g.id) %></li>
-			<ul>
-				<li><%= link_to "Create Question", new_group_question_path(g.id) %></li>
-				<li><%= link_to "Vote", new_group_vote_path(g.id) %></li>
-				<li><%= link_to "View Vote Results", group_votes_path(g.id) %></li>
-			</ul>
-		<% end %>
-  </ul>
+    <div class="signup-box">
+      <h2 class="text-center">You are a member of <span class="red-text"><%= pluralize(@groups.count,'') %></span> group.</h2>
+      <br>
+      <br>
+      <ul class="list-group">
+        <% @groups.each do |g| %>
+          <li class="list-group-item">
+            <h4>Group name: <%= link_to g.name, group_path(g.id) %></h4>
+            <br>
+            <div class="group-menu-bt-box">
+              <%= link_to "Create Question", new_group_question_path(g.id) ,class: "btn btn-primary" %>
+              <%= link_to "Vote", new_group_vote_path(g.id) ,class: "btn btn-info" %>
+              <%= link_to "View Vote Results", group_votes_path(g.id) ,class: "btn btn-success" %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
 </div>

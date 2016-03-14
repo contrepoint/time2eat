@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
 
   def create
 		group = Group.new(group_params)
-		members = params[:members]
+		members = params[:group][:user_email]
 		members_array = members.split(',').collect{|x| x.strip || x }
 
 		if group.save

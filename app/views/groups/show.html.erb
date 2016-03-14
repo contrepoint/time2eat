@@ -1,19 +1,21 @@
 <div class='container'>
-	Group Name: <%= @group.name %><br>
-	Group Description: <%= @group.description %><br><br>
-	<%= pluralize(@group.users.count, 'Member')%>:<br>
-		<% @group.users.each do |m| %>
-			<%= m.name %><br>
-		<% end %>
-	<br>
+  <div class="signup-box">
+    Group Name: <%= @group.name %><br>
+    Group Description: <%= @group.description %><br><br>
+    <%= pluralize(@group.users.count, 'Member')%>:<br>
+      <% @group.users.each do |m| %>
+        <%= m.name %><br>
+      <% end %>
+    <br>
 
-	<%= pluralize(@group.questions.count, 'Question') %>:<br>
-		<% @group.questions.each do |q| %>
-			<%= q.question_text %><br>
-				<% q.question_options.each do |o| %>
-					<%= o.option_text %> ===
-					<!-- === is a placeholder separator. remove once front-end is done. -->
-				<% end %>
-					<br><br>
-		<% end %>
+    <%= pluralize(@group.questions.count, 'Question') %>:<br>
+      <% @group.questions.each do |q| %>
+        <%= q.question_text %><br>
+          <% q.question_options.each do |o| %>
+            <%= o.option_text %> ===
+            <!-- === is a placeholder separator. remove once front-end is done. -->
+          <% end %>
+            <br><br>
+      <% end %>
+  </div>
 </div>
