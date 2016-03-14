@@ -2,7 +2,6 @@ class GroupsController < ApplicationController
   autocomplete :user, :email
 
   def create
-  		byebug
 		group = Group.new(group_params)
 		members = params[:members]
 		members_array = members.split(',').collect{|x| x.strip || x }
