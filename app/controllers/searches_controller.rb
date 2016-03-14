@@ -5,8 +5,8 @@ class SearchesController < ApplicationController
 	end
 
 	def create
-		@location = params[:search][:location]
-		@searched = params[:search][:search_for]
+		@location = params[:search][:location].titleize
+		@searched = params[:search][:search_for].titleize
 		search_for = { term: @searched }
   	@x = Yelp.client.search(@location, search_for).businesses
 		# gon.business = x.businesses.to_json  # can refactor the two .map to be done in javascript.

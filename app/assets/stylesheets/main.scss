@@ -10,7 +10,7 @@
   h1 {
     text-align: center;
   }
-  margin-top: 60px;
+  margin-top: 30px;
   margin-bottom: 60px;
   border-radius: 12px;
   border: 1px solid #a9a9a9;
@@ -424,9 +424,15 @@ img {
   color: #e00000;
 }
 .list-group-item {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+/* old css:;
+.list-group-item {
   padding-top: 20px;
   padding-bottom: 20px;
-}
+}*/
 .restaurant-details-content-name-box.margin-bt-0 {
   > h2 {
     margin-bottom: 0;
