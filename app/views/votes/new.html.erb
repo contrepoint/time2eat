@@ -1,4 +1,9 @@
 <div class='container'>
+	<% if @voted %>
+		You have voted. Use this form to resubmit your vote if you changed your mind.<br><br>
+	<% else %>
+		You have not yet voted.<br>
+	<% end %>
 
   <%= form_for :vote, url: group_votes_path do |f| %>
 
