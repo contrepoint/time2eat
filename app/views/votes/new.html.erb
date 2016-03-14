@@ -1,20 +1,34 @@
 <div class='container'>
+  <div class="signup-box">
+    <%= form_for :vote, url: group_votes_path do |f| %>
 
-  <%= form_for :vote, url: group_votes_path do |f| %>
+      <% @questions.each do |q| %>
+        <h3 class="text-center">
+          <%= q.question_text %>
+        </h3>
+            <br>
+        <div class="food-type-box text-center">
+          <% q.question_options.each do |o| %>
+            <label class="radio-inline">
+              <%= f.radio_button :question_option_id, o.id, name: "question[#{q.id}]" %>
 
-  	<% @questions.each do |q| %>
-  		<%= q.question_text %><br>
-  			<% q.question_options.each do |o| %>
-  				<%= f.radio_button :question_option_id, o.id, name: "question[#{q.id}]" %>
+              <%= o.option_text %>
+            </label>
+          <% end %>
+        </div>
+      <% end %>
 
-  				<%= o.option_text %>
-  			<% end %>
-  			<br><br>
-  	<% end %>
+        <br>
+        <hr>
+        <br>
 
-  	<%= button_tag(type: 'submit', class: 'btn') do %>
-  		<span class='glyphicon glyphicon-check'></span> Submit Vote
-  	<% end %>
+        <div class="text-center">
+          <!--<input type="submit" class="btn btn-success" value="Submit your vote">-->
+          <%= button_tag(type: 'submit', class: 'btn btn-success') do %>
+              <span class='glyphicon glyphicon-check'></span> Submit Vote
+          <% end %>
+        </div>
 
-  <% end %>
+    <% end %>
+  </div>
 </div>

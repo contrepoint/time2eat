@@ -12,11 +12,11 @@ class VotesController < ApplicationController
   				vote.save
   			end
   		else
-  			new_vote = Vote.new(user_id: current_user_id, question_id: x[0], question_option_id: x[1])
+  			new_vote = Vote.new(user_id: current_user.id, question_id: x[0], question_option_id: x[1])
   			new_vote.save
   		end
   	end
-  	user = UsersGroup.find_by(user_id: current_user_id, group_id: params[:group_id])
+  	user = UsersGroup.find_by(user_id: current_user.id, group_id: params[:group_id])
   	user.voted = true
   	user.save
   	redirect_to group_votes_path
