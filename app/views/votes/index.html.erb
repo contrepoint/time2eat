@@ -9,13 +9,22 @@
 
 	<% @questions.each do |q| %>
 		<%= q.question_text %><br>
-			<% q.question_options.each do |o| %>
+			<% q.question_options.highest_vote_count.each do |o| %>
 				<%= o.option_text %> - <%= pluralize(o.votes.count, 'vote') %>.<br>
 
 			<% end %>
 			<br><br>
 	<% end %>
 
-	<%= link_to 'Search', root_path %>
+	<%= form_for :search, url: searches_path do |f| %>
+		<%= f.label :search_for %>:
+		<%= f.text_field :search_for, :value => "sample params" %>
+		<%= f.label :located_near %>
+		<%= f.text_field :location, :value => "sample location" %>
+
+		<%= button_tag(type: "submit", class: "btn") do %>
+			<span class='glyphicon glyphicon-check'></span> Search
+		<% end %>
+	<% end %>
 
 <div>
