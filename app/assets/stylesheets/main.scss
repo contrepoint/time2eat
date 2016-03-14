@@ -427,3 +427,20 @@ img {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+.restaurant-details-content-name-box.margin-bt-0 {
+  > h2 {
+    margin-bottom: 0;
+  }
+}
+.head-result-layout {
+  padding-bottom: 0;
+}
+.margin-bottom-30 {
+  margin-bottom: 30px;
+}
+.media-image-size {
+  width: 72px;
+}
+.media-object {
+  max-width: none;
+}

@@ -42,9 +42,7 @@
               <% end %>
             </ul>
           </p>
-          <%= link_to "Create Question", new_group_question_path(@group.id) %><br>
-          <%= link_to "Vote", new_group_vote_path(@group.id) %><br>
-          <%= link_to "View Vote Results", group_votes_path(@group.id) %><br>
+
         </div>
 
       </div>
@@ -71,6 +69,12 @@
             </tr>
             </tbody>
           </table>
+          <br>
+          <%= link_to "Create Question", new_group_question_path(@group.id), class: "btn btn-primary" %><br>
+          <br>
+          <%= link_to "Vote", new_group_vote_path(@group.id), class: "btn btn-info" %><br>
+          <br>
+          <%= link_to "View Vote Results", group_votes_path(@group.id), class: "btn btn-success" %><br>
         </div>
       </div>
 

@@ -1,36 +1,78 @@
 <div class='container'>
-	<%= form_for :question, url: group_questions_path do |f| %>
+  <div class="signup-box">
+    <h1>Add new Question</h1>
+    <br>
+    <br>
+    <%= form_for :question, url: group_questions_path, :html => {:class => 'form-horizontal'} do |f| %>
 
-  	<% if @errors.any? %>
-    	The form contains <%= pluralize(@errors.count, "error") %>.
-    	<ul>
-    		<% @errors.each do |e| %>
-      		<li><%= e %></li>
-    		<% end %>
-    	</ul>
-  	<% end %>
+      <% if @errors.any? %>
+        The form contains <%= pluralize(@errors.count, "error") %>.
+        <ul>
+          <% @errors.each do |e| %>
+            <li><%= e %></li>
+          <% end %>
+        </ul>
+      <% end %>
 
-		<%= f.label :question_text %>:
-		<%= f.text_field :question_text %><br>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Question</label>
+        <div class="col-sm-9">
+          <!--<input type="text" class="form-control" id="inputEmail3" placeholder="Question">-->
+          <%= f.text_field :question_text , class:"form-control" ,placeholder:"Question" %>
 
-		<%= f.label :question_options %>:
-		<%= text_field_tag :question_options, placeholder="test" %><br>
-		(separate question options with a comma. eg: steamboat, chinese food, japanese food)<br><br>
-		<!-- need to have a validation on question controller side for question_options field -->
+        </div>
+      </div>
 
-		<%= f.label :question_type %>:
-		<%= f.radio_button :question_type, "Budget" %>
-		<%= f.label :Budget %>
-		<%= f.radio_button :question_type, "Type of Food" %>
-		<%= f.label :type_of_food %>
-		<%= f.radio_button :question_type, "Location" %>
-		<%= f.label :location %>
-		<%= f.radio_button :question_type, "Other" %>
-		<%= f.label :other %><br><br>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Question options</label>
+        <div class="col-sm-9">
 
-		<%= button_tag(type: 'submit', class: 'btn') do %>
-			<span class='glyphicon glyphicon-check'></span> Create Question
-		<% end %>
+          <%= text_field_tag :question_options, "test", class:"form-control", placeholder:"test" %>
+          <br>
 
-	<% end %>
+          (separate question options with a comma. eg: steamboat, chinese food, japanese food)
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Question Types</label>
+        <div class="col-sm-9">
+
+          <div class="radio">
+            <label>
+              <%= f.radio_button :question_type, "Budget" %>
+              Budget
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <%= f.radio_button :question_type, "Type of Food" %>
+              Type of Food
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <%= f.radio_button :question_type, "Location" %>
+              Location
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <%= f.radio_button :question_type, "Other" %>
+              Other
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <button type="submit" class="btn btn-success">
+            <span class='glyphicon glyphicon-check'></span> Create Question
+          </button>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
 </div>

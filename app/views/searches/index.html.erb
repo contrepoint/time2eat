@@ -1,21 +1,104 @@
-<div class='container'>
-	Best <%= @searched %> in <%= @location %><br>
-	<% @x.each do |b| %>
-		<%= image_tag b.image_url %><br>
-		<%= link_to b.name, b.url %><br>
-		<%= image_tag b.rating_img_url %><%= pluralize(b.review_count, 'review') %><br>
-		<% b.location.display_address.each_with_index do |a, index| %>
-			<% if index == b.location.display_address.size - 1 %>
-				<%= a %><br>
-			<% else %>
-				<%= a %>,
-			<% end %>
-		<% end %>
-		<%= b.snippet_text%><br>
-		<%= b.phone %><br>
-	<% end %>
-	<div id="map_wrapper">
-    <div id="map_canvas" class="mapping"></div>
-	</div>
-<%= image_tag("yelp/yelp.png") %>
-</div>
+<section class="restaurant-details-banner-section">
+  <div class="black-filter">
+
+  </div>
+  <div class="container restaurant-details-banner-container">
+    <!--<div class="logo-box thumb-image">-->
+      <!--<% image_tag("Pringles_logo.png") %>-->
+    <!--</div>-->
+    <div class="content-box">
+      <h1>Best <%= @searched %></h1>
+      <br>
+      <h3>In</h3>
+      <br>
+      <h2>
+        <%= @location %>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="restaurant-details-content-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="restaurant-details-content-name-box head-result-layout margin-bottom-30 margin-bt-0">
+          <h2 class="inner">Results</h2>
+
+        </div>
+
+      </div>
+      <div class="col-md-12">
+        <% @x.each do |b| %>
+          <div class="restaurant-details-content-name-box">
+            <div class="media">
+              <div class="media-left">
+
+                <!--<img class="media-object" data-src="holder.js/64x64" style="width: 64px; height: 64px;" src="" data-holder-rendered="true">-->
+                <%= image_tag b.image_url ,class: "media-object" ,"data-holder-rendered":"true"%>
+              </div>
+              <div class="media-body">
+
+                <%= link_to b.url do %>
+                    <h4 class="media-heading"><%= b.name %></h4>
+                <% end %>
+                <%= image_tag b.rating_img_url %> <%= pluralize(b.review_count, 'review') %>
+                <br>
+                <br>
+                <strong>
+                  <% b.location.display_address.each_with_index do |a, index| %>
+                      <% if index == b.location.display_address.size - 1 %>
+                          <%= a %> <br>
+                      <% else %>
+                          <%= a %>,<br>
+                      <% end %>
+                  <% end %>
+                </strong>
+                <br>
+                <%= b.snippet_text %>
+                <br>
+                <br>
+                <strong>Phone number:</strong> <%= b.phone %>
+                <br>
+                <br>
+                <div id="map_wrapper">
+                  <div id="map_canvas" class="mapping"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <br>
+        <!--<div class="restaurant-details-content-name-box">-->
+          <!--<h2 class="inner">Maps</h2>-->
+          <!--<div id="map">-->
+
+          <!--</div>-->
+        <!--</div>-->
+      </div>
+      <!--<div class="col-md-4">-->
+        <!--<div class="restaurant-details-content-details-box">-->
+          <!--<h3>Results</h3>-->
+          <!--<table>-->
+            <!--<tr>-->
+              <!--<td>-->
+                <!--<strong>Food Type</strong>-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--Cat01-->
+              <!--</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+              <!--<td>-->
+                <!--<strong>Price Range</strong>-->
+              <!--</td>-->
+              <!--<td>-->
+                <!--10 - 30 RM-->
+              <!--</td>-->
+            <!--</tr>-->
+          <!--</table>-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+  </div>
+</section>
