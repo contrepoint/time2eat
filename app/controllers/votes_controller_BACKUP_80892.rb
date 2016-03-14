@@ -16,9 +16,11 @@ class VotesController < ApplicationController
   				vote.save
   			end
   		else
-
+<<<<<<< HEAD
+  			new_vote = Vote.new(user_id: current_user.id, question_id: x[0], question_option_id: x[1])
+=======
   			new_vote = Vote.new(user_id: current_user.id, q: x[0], question_option_id: x[1].to_i)
-
+>>>>>>> 99be6dec3e031a84538074eca5ea0e2a73648b25
   			new_vote.save
   		end
   	end

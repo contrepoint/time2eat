@@ -16,9 +16,7 @@ class VotesController < ApplicationController
   				vote.save
   			end
   		else
-
   			new_vote = Vote.new(user_id: current_user.id, q: x[0], question_option_id: x[1].to_i)
-
   			new_vote.save
   		end
   	end

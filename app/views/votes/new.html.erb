@@ -1,6 +1,14 @@
 <div class='container'>
+<<<<<<< HEAD
   <div class="signup-box">
     <%= form_for :vote, url: group_votes_path do |f| %>
+=======
+	<% if @voted %>
+		You have voted. Use this form to resubmit your vote if you changed your mind.<br><br>
+	<% else %>
+		You have not yet voted.<br>
+	<% end %>
+>>>>>>> 99be6dec3e031a84538074eca5ea0e2a73648b25
 
       <% @questions.each do |q| %>
         <h3 class="text-center">
