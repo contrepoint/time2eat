@@ -1,34 +1,73 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="signup-box">
+    <h1>Sign up</h1>
+    <br>
+    <br>
+    <%= form_for resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'form-horizontal'} do |f| %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+              <%= devise_error_messages! %>
+
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+          <!--<input type="email" class="form-control" id="inputEmail3" placeholder="Email">-->
+
+          <%= f.text_field :name, class:"form-control",placeholder: "Name", autofocus: true %>
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+          <!--<input type="email" class="form-control" id="inputEmail3" placeholder="Email">-->
+          <%= f.email_field :email, class:"form-control",placeholder: "Email" , autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+          <!--<input type="password" class="form-control" id="inputPassword3" placeholder="Password">-->
+          <%= f.password_field :password,class:"form-control",placeholder: "Email", autocomplete: "off" %>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Confirm Password</label>
+        <div class="col-sm-10">
+          <!--<input type="password" class="form-control" id="inputPassword3" placeholder="Confirm Password">-->
+          <%= f.password_field :password_confirmation ,class:"form-control",placeholder: "Confirm Password" , autocomplete: "off" %>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <!--<button type="submit" class="btn btn-success">Sign Up</button>-->
+          <%= f.submit "Sign up" ,class:"btn btn-success" %>
+
+        </div>
+      </div>
+    <% end %>
+    <br>
+    <hr>
+    <br>
+    <div class="social-bt-sign-box">
+      <a href="#" class="btn btn-lg btn-social btn-facebook">
+        <i class="fa fa-facebook"></i>
+        Sign in with Facebook
+      </a>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+    <div class="text-center">
+      <%= render "users/shared/links" %>
+    </div>
+
   </div>
-  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>

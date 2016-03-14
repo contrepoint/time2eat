@@ -1,14 +1,14 @@
-<div class='container'>
-	<%= form_for :group, url: groups_path do |f| %>
+<!--<div class='container'>-->
+	<!--<% form_for :group, url: groups_path do |f| %>-->
 
-		<% if @errors.any? %>
-    	The form contains <%= pluralize(@errors.count, "error") %>.
-    	<ul>
-    		<% @errors.each do |e| %>
-      		<li><%= e %></li>
-    		<% end %>
-    	</ul>
-  	<% end %>
+		<!--<% if @errors.any? %>-->
+    	<!--The form contains <%= pluralize(@errors.count, "error") %>.-->
+    	<!--<ul>-->
+    		<!--<% @errors.each do |e| %>-->
+      		<!--<li><%= e %></li>-->
+    		<!--<% end %>-->
+    	<!--</ul>-->
+  	<!--<% end %>-->
 
 		<%= f.label :name_of_group %>:
 		<%= f.text_field :name %><br>
@@ -19,11 +19,74 @@
 		<%= f.label :add_member_emails %>:
 		<%= f.autocomplete_field :user_email, autocomplete_user_email_groups_path ,
 		input_html: {'data-id-element' => '#group_user_email' }%><br>
-		(separate member emails with a comma. eg: a@a.com, b@b.com)<br><br>
+		<!--(separate member emails with a comma. eg: a@a.com, b@b.com)<br><br>-->
 
-		<%= button_tag(type: "submit", class: "btn") do %>
-			<span class='glyphicon glyphicon-check'></span> Create Group
-		<% end %>
+		<!--<%= button_tag(type: "submit", class: "btn") do %>-->
+			<!--<span class='glyphicon glyphicon-check'></span> Create Group-->
+		<!--<% end %>-->
 
-	<% end %>
+	<!--<% end %>-->
+<!--</div>-->
+
+
+
+
+<div class="container">
+  <div class="signup-box">
+    <h1>Group</h1>
+    <br>
+    <%= form_for :group, url: groups_path, :html => {:class => 'form-horizontal'} do |f| %>
+        <% if @errors.any? %>
+            <div class="alert alert-danger">
+              The form contains <%= pluralize(@errors.count, "error") %>.
+              <ul>
+                <% @errors.each do |e| %>
+                    <li><%= e %></li>
+                <% end %>
+              </ul>
+            </div>
+
+        <% end %>
+
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-3 control-label">Group Name:</label>
+        <div class="col-sm-9">
+          <!--<input type="text" class="form-control" id="inputEmail3" placeholder="group name">-->
+          <%= f.text_field :name ,class:"form-control" ,placholder: "group name" %><br>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Description</label>
+        <div class="col-sm-9">
+          <!--<input type="text" class="form-control"  placeholder="description">-->
+          <%= f.text_field :description,class:"form-control", placeholder: "Describe your group" %>
+          <br>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Add Member Emails</label>
+        <div class="col-sm-9">
+          <!--<buttion class="btn btn-lg btn-info" data-toggle="modal" data-target="#myModal">Add member by email or username</buttion>-->
+          <%= f.autocomplete_field :user_email, autocomplete_user_email_groups_path ,
+                                    class:"form-control",
+                                    input_html: {'data-id-element' => '#group_user_email' }%>
+          <br>
+          <p>(separate member emails with a comma. eg: a@a.com, b@b.com)</p>
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <button type="submit" class="btn btn-success">
+            <span class='glyphicon glyphicon-check'></span> Create Group
+          </button>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+
 </div>
