@@ -14,7 +14,7 @@
 		<%= f.text_field :question_text %><br>
 
 		<%= f.label :question_options %>:
-		<%= text_field_tag :question_options %><br>
+		<%= text_field_tag :question_options, placeholder="test" %><br>
 		(separate question options with a comma. eg: steamboat, chinese food, japanese food)<br><br>
 		<!-- need to have a validation on question controller side for question_options field -->
 
@@ -24,7 +24,9 @@
 		<%= f.radio_button :question_type, "Type of Food" %>
 		<%= f.label :type_of_food %>
 		<%= f.radio_button :question_type, "Location" %>
-		<%= f.label :location %><br><br>
+		<%= f.label :location %>
+		<%= f.radio_button :question_type, "Other" %>
+		<%= f.label :other %><br><br>
 
 		<%= button_tag(type: 'submit', class: 'btn') do %>
 			<span class='glyphicon glyphicon-check'></span> Create Question

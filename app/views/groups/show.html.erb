@@ -16,4 +16,7 @@
 				<% end %>
 					<br><br>
 		<% end %>
+		<%= link_to "Create Question", new_group_question_path(@group.id) %><br>
+		<%= link_to "Vote", new_group_vote_path(@group.id) %><br>
+		<%= link_to "View Vote Results", group_votes_path(@group.id) %><br>
 </div>

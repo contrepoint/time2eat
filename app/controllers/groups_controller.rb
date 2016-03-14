@@ -1,16 +1,18 @@
 class GroupsController < ApplicationController
+	before_action :authenticate_user!
+
   autocomplete :user, :email
 
   def create
 		group = Group.new(group_params)
-		members = params[:members]
+		members = params[:group][:user_email]
 		members_array = members.split(',').collect{|x| x.strip || x }
 
 		if group.save
 			members_array.each do |x|
 				users_group = UsersGroup.create(user_id: User.find_by(email: x).id, group_id: group.id)
 			end
-			redirect_to root_path
+			redirect_to group_path(group.id)
 		else
 			@errors = group.errors.full_messages
 			render 'new'
@@ -26,7 +28,7 @@ class GroupsController < ApplicationController
   end
 
   def index
-  	@groups = current_user.groups
+  	@groups = current_user.groups.sort
   end
 
   private
