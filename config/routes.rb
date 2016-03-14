@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 get 'votes/test' => 'votes#test'
 get 'votes/test2' => 'votes#test2'
 
+	resources :searches, only: [:index, :create]
+
   resources :groups, only: [:create, :new, :show, :index] do
   	get :autocomplete_user_email	, :on => :collection
   	resources :questions, only: [:create, :new]
