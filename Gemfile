@@ -44,6 +44,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'yelp', require: 'yelp'
 gem 'gon'
 gem "table_print"
+gem 'puma'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
