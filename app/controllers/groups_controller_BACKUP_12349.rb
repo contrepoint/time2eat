@@ -8,10 +8,12 @@ class GroupsController < ApplicationController
 
   def create
 		group = Group.new(group_params)
-
+<<<<<<< HEAD
 		group.made_by_id = current_user.id
+		members = params[:group][:user_email]
+=======
 		members = params[:group][:members]
-
+>>>>>>> f1f01b3a6f8c9029347577a43b577f59b9d0cbdf
 		members_array = members.split(',').collect{|x| x.strip || x }
 
 		if group.save
