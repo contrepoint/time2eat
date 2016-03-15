@@ -33,6 +33,8 @@ class GroupsController < ApplicationController
 
   def edit
   	@group = Group.find(params[:id])
+		@users = @group.users.all
+		#@users = User.where(@users_group)
   end
 
   private
