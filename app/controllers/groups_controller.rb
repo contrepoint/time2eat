@@ -31,6 +31,10 @@ class GroupsController < ApplicationController
   	@groups = current_user.groups.sort
   end
 
+  def edit
+  	@group = Group.find(params[:id])
+  end
+
   private
 
 	  def group_params
