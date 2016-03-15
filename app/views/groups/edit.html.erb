@@ -3,8 +3,16 @@
     <h1>Edit Your Group</h1>
     <br>
     <br>
-    <%= form_for(@group) do |f| %>
+    <%= form_for(@group , :html => {:class => 'form-horizontal'}) do |f| %>
     <!-- front-end broken here. need to insert in the class again. -->
+
+        <% if flash.present? %>
+            <% flash.each do |key, value| %>
+                <div class="alert alert-<%= key %>">
+                  <%= value  %>
+                </div>
+            <% end %>
+        <% end %>
 
         <div class="form-group">
           <label for="inputEmail3" class="col-sm-3 control-label">Group Name</label>
@@ -25,17 +33,13 @@
         <div class="form-group">
           <label class="col-sm-3 control-label">Edit Member Emails</label>
           <div class="col-sm-9">
-            <!--<buttion class="btn btn-lg btn-info" data-toggle="modal" data-target="#myModal">Add member by email or username</buttion>-->
-            <% #autocomplete_field :, autocomplete_user_email_groups_path ,
-                #class:"form-control",
-               #placeholder:"Separate member emails with a comma. Eg: a@a.com, b@b.com",
-               #input_html: {'data-id-element' => '#group_user_email' }%>
+
             <%= text_field :user ,class:"form-control" ,placeholder: "Add member" %><br>
             <br>
             <div class="member-list-box">
               <% @users.each do |user| %>
                 <%= user.name %>
-                  <%= link_to "Delete", root_path, class:"btn btn-danger pull-right" , method: :delete %><br>
+                  <%= link_to "Delete This User", delete_user_group_path(@group.id,user.id), class:"btn btn-danger pull-right" , method: :delete, data: { confirm: "Are you sure?"} %><br>
 
               <% end %>
             </div>

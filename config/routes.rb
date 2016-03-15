@@ -27,4 +27,6 @@ get 'votes/test2' => 'votes#test2'
 
   #### for layout test
 
+  delete 'group/:group_id/user/:user_id' => 'groups#deleteuser_from_group' , :as => :delete_user_group
+
 end

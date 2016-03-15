@@ -1,10 +1,14 @@
 class GroupsController < ApplicationController
+
 	before_action :authenticate_user!
+
+	before_action :check_user_own_group ,only: []
 
   autocomplete :user, :email
 
   def create
 		group = Group.new(group_params)
+		group.made_by_id = current_user.id
 		members = params[:group][:user_email]
 		members_array = members.split(',').collect{|x| x.strip || x }
 
@@ -61,12 +65,32 @@ class GroupsController < ApplicationController
   	else
   		redirect_to groups_path
   	end
-  end
+	end
+
+	def deleteuser_from_group
+		user_id = params[:user_id]
+		group_id = params[:group_id]
+
+		user_to_delete = UsersGroup.find_by(user_id: user_id,group_id: group_id)
+
+		if user_to_delete.destroy
+			flash.now[:success] = "Success delete user from this group"
+			render 'edit'
+		else
+			flash.now[:danger] = "Error delete user"
+			render 'edit'
+		end
+
+	end
 
   private
 
-	  def group_params
-	  	params.require(:group).permit(:name, :description)
-	  end
+	def group_params
+		params.require(:group).permit(:name, :description)
+	end
+
+	def check_user_own_group
+
+	end
 
 end
