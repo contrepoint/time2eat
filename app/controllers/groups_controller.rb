@@ -5,12 +5,17 @@ class GroupsController < ApplicationController
 
   def create
 		group = Group.new(group_params)
-		members = params[:group][:user_email]
+		members = params[:group][:members]
 		members_array = members.split(',').collect{|x| x.strip || x }
 
 		if group.save
 			members_array.each do |x|
-				users_group = UsersGroup.create(user_id: User.find_by(email: x).id, group_id: group.id)
+				users_group = UsersGroup.new(user_id: User.find_by(username: x).id, group_id: group.id)
+				if users_group # username exists
+					users_group.save
+				else
+				# need to show an error if username is not found.
+				end
 			end
 			redirect_to group_path(group.id)
 		else
@@ -24,10 +29,15 @@ class GroupsController < ApplicationController
   end
 
   def show
-  	@group = Group.find(params[:id])
-  	@questions = Group.find(params[:id]).questions
-  	@voted = UsersGroup.find_by(group_id: params[:id], user_id: current_user.id).voted
-  	@total_votes = UsersGroup.where(group_id: params[:id], voted: true).count
+  	user = UsersGroup.find_by(group_id: params[:id], user_id: current_user.id)
+  	if user
+	  	@group = Group.find(params[:id])
+	  	@questions = Group.find(params[:id]).questions
+	  	@voted = UsersGroup.find_by(group_id: params[:id], user_id: current_user.id).voted
+	  	@total_votes = UsersGroup.where(group_id: params[:id], voted: true).count
+	  else
+	  	redirect_to groups_path
+	  end
   end
 
   def index
