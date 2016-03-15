@@ -37,37 +37,38 @@
                 <%= image_tag b.image_url ,class: "media-object" ,"data-holder-rendered":"true"%>
               </div>
               <div class="media-body">
-
-                <%= link_to b.url do %>
-                    <h4 class="media-heading"><%= b.name %></h4>
-                <% end %>
-                <%= image_tag b.rating_img_url %> <%= pluralize(b.review_count, 'review') %>
-                <br>
-                Categories: <% b.categories.each_with_index do |c, index| %>
-                  <% if index == b.categories.size - 1 %>
-                    <%= link_to c[0], "https://www.yelp.com/search?find_desc=#{@searched}&find_loc=#{@location}&start=0&cflt=#{c[0]}" %>
-                  <% else %>
-                  	<%= link_to c[0], "https://www.yelp.com/search?find_desc=#{@searched}&find_loc=#{@location}&start=0&cflt=#{c[0]}" %>,
-                  <% end %>
-                <% end %>
-                <br>
-                <br>
-                <strong>
-                  <% b.location.display_address.each_with_index do |a, index| %>
-                      <% if index == b.location.display_address.size - 1 %>
-                          <%= a %> <br>
-                      <% else %>
-                          <%= a %>,<br>
+                <div class="row">
+                  <div class="col-md-6">
+                    <%= link_to b.url do %>
+                        <h4 class="media-heading"><%= b.name %></h4>
+                    <% end %>
+                    <%= image_tag b.rating_img_url %> <%= pluralize(b.review_count, 'review') %>
+                    <br>
+                    Categories: <% b.categories.each_with_index do |c, index| %>
+                        <% if index == b.categories.size - 1 %>
+                            <%= link_to c[0], "https://www.yelp.com/search?find_desc=#{@searched}&find_loc=#{@location}&start=0&cflt=#{c[0]}" %>
+                        <% else %>
+                            <%= link_to c[0], "https://www.yelp.com/search?find_desc=#{@searched}&find_loc=#{@location}&start=0&cflt=#{c[0]}" %>,
+                        <% end %>
+                    <% end %>
+                  </div>
+                  <div class="col-md-6">
+                    <strong>
+                      <% b.location.display_address.each_with_index do |a, index| %>
+                          <% if index == b.location.display_address.size - 1 %>
+                              <%= a %> <br>
+                          <% else %>
+                              <%= a %>,<br>
+                          <% end %>
                       <% end %>
-                  <% end %>
-                </strong>
-                <br>
-                <!-- < %= b.snippet_text %><br><br> -->
-                <% if b.phone %>
-                	<strong>Phone number:</strong> <%= b.phone %>
-                <% end %>
-                <br>
-                <br>
+                    </strong>
+                    <br>
+                    <!-- < %= b.snippet_text %><br><br> -->
+                    <% if b.phone %>
+                        <strong>Phone number:</strong> <%= b.phone %>
+                    <% end %>
+                  </div>
+                </div>
 
               </div>
             </div>
