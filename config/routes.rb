@@ -5,7 +5,7 @@ get 'votes/test2' => 'votes#test2'
 
 	resources :searches, only: [:index, :create]
 
-  resources :groups, only: [:create, :new, :show, :index] do
+  resources :groups do
   	get :autocomplete_user_email	, :on => :collection
   	resources :questions, only: [:create, :new]
   	resources :votes, only: [:create, :new, :index]
