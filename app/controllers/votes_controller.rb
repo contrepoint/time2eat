@@ -2,8 +2,13 @@ class VotesController < ApplicationController
 	before_action :authenticate_user!
 
   def new
-  	@voted = UsersGroup.find_by(group_id: params[:group_id], user_id: current_user.id).voted
-  	@questions = Group.find(params[:group_id]).questions
+  	user = UsersGroup.find_by(group_id: params[:group_id], user_id: current_user.id)
+  	if user
+  		@voted = user.voted
+  		@questions = Group.find(params[:group_id]).questions
+  	else
+  		redirect_to groups_path
+  	end
   end
 
   def create
