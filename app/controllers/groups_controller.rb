@@ -90,10 +90,10 @@ class GroupsController < ApplicationController
 		user_to_delete = UsersGroup.find_by(user_id: user_id,group_id: group_id)
 
 		if user_to_delete.destroy
-			flash[:success] = "Success delete user from this group"
+			flash[:success] = "Successfully deleted user from this group"
 			redirect_to edit_group_url(group_id)
 		else
-			flash[:danger] = "Error delete user"
+			flash[:danger] = "Could not delete user"
 			redirect_to edit_group_url(group_id)
 		end
 
@@ -115,7 +115,7 @@ class GroupsController < ApplicationController
 						#format.html { redirect_to @product, notice: "Save process completed!" }
 						# format.json { status: :created }
 						#format.json { render :json => true }
-						flash[:success] = "Success Add member"
+						flash[:success] = "Successfully added member to group"
 
 						success_return = { "window_location":"#{edit_group_url(params["group"])}" }
 
@@ -128,11 +128,11 @@ class GroupsController < ApplicationController
 						format.json { render :json => error_return, :status => :unprocessable_entity }
 					end
 				else
-					error_return = { content:"This user already belong to this group" }
+					error_return = { content:"This user already belongs to this group" }
 					format.json { render :json => error_return, :status => :unprocessable_entity }
 				end
 			else
-				error_return = { content:"Can not find this user" }
+				error_return = { content:"Cannot find this user. Please check their username." }
 				format.json { render :json => error_return, :status => :unprocessable_entity }
 			end
 		end

@@ -9,7 +9,7 @@
             <h4>Group name: <%= link_to g.name, group_path(g.id) %></h4>
             <br>
             <div class="group-menu-bt-box">
-            	<%= link_to 'Edit Group', edit_group_path(g.id), class: 'btn btn-warning' %>
+            	<%= link_to 'Edit Group', edit_group_path(g.id), class: 'btn btn-danger' %>
               <%= link_to "Create Question", new_group_question_path(g.id) ,class: "btn btn-primary" %>
               <%= link_to "Vote", new_group_vote_path(g.id) ,class: "btn btn-info" %>
               <%= link_to "View Vote Results", group_path(g.id) ,class: "btn btn-success" %>

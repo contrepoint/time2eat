@@ -98,7 +98,6 @@ ActiveRecord::Schema.define(version: 20160315074830) do
     t.integer  "question_option_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.integer  "question_id"
     t.integer  "q"
   end
 
