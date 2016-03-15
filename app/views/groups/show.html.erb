@@ -72,7 +72,7 @@
             <tr>
               <td>
                 <% @group.users.each do |m| %>
-                    <%= m.name %><br>
+                    <%= m.name %> (<%= m.username %>)<br>
                 <% end %>
               </td>
 
