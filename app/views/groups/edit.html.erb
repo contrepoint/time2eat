@@ -31,17 +31,33 @@
         </div>
 
         <div class="form-group">
-          <label class="col-sm-3 control-label">Edit Member Emails</label>
+          <label class="col-sm-3 control-label">Add Member Emails</label>
           <div class="col-sm-9">
-
-            <%= text_field :user ,class:"form-control" ,placeholder: "Add member" %><br>
+            <div class="row">
+              <div class="col-md-8">
+                <%= text_field :user,'user_name' ,class:"form-control user_name_add_input" ,placeholder: "Add member" %>
+              </div>
+              <div class="col-md-4">
+                <%= link_to "Add this user" ,"#",class: "btn btn-info pull-right add_user_bt" %>
+              </div>
+            </div>
             <br>
             <div class="member-list-box">
-              <% @users.each do |user| %>
-                <%= user.name %>
-                  <%= link_to "Delete This User", delete_user_group_path(@group.id,user.id), class:"btn btn-danger pull-right" , method: :delete, data: { confirm: "Are you sure?"} %><br>
-
-              <% end %>
+              <div class="row">
+                <% @users.each do |user| %>
+                  <div class="col-md-12">
+                    <%= user.name %>
+                    <% unless user.id == current_user.id && @current_user_role == "admin" %>
+                      <%= link_to "Delete This User", delete_user_group_path(@group.id,user.id),
+                                  class:"btn btn-danger pull-right" ,
+                                  method: :delete, data: { confirm: "Are you sure?"} %>
+                    <% end %>
+                    <br>
+                    <br>
+                    <br>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -57,3 +73,46 @@
   <% end %>
   </div>
 </div>
+
+<% content_for :footer_script do %>
+    <script type="text/javascript" charset="utf-8">
+      $( document ).ready(function() {
+        $('.add_user_bt').click(function(){
+
+          var valuesToSubmit = {
+                                  "username" : $('.user_name_add_input').val(),
+                                  "group": <%= @group.id %>
+                                }
+
+          //alert(valuesToSubmit["username"]);
+          $.ajax({
+            type: "POST",
+            url: '/group/add_user', //sumbits it to the given url of the form
+            data: valuesToSubmit,
+            dataType: "JSON" // you want a difference between normal and ajax-calls, and json is standard
+          }).success(function(json){
+            //alert("add user sss");
+            //$btn.button('reset')
+            window.location.href = json['window_location'];
+          }).error(function(json){
+
+            //$btn.button('reset');
+            //alert("errer");
+            //console.log(json)
+
+            var data_back = json["responseText"];
+
+            var data_back_parse = $.parseJSON(data_back);
+            $.each(data_back_parse, function(k, v) {
+              //display the key and value pair
+              alert(v);
+            });
+
+          });
+
+          return false
+        })
+      });
+
+    </script>
+<% end %>
