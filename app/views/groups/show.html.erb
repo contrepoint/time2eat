@@ -2,45 +2,62 @@
   <br>
     <h2 class="text-center">Group Details</h2>
     <br>
+              <%= form_for :search, url: searches_path ,:html => {:class => 'form-horizontal'} do |f| %>
+        <div class="form-group">
+          <label>Find</label>
+          <div>
+            <%= f.text_field :search_for,class:"form-control", :placeholder => "Type of Food" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>At</label>
+          <div>
+            <%= f.text_field :location,class:"form-control", :placeholder => "Location" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <%= button_tag(type: "submit", class: "btn btn-success") do %>
+            	Search
+            <% end %>
     <br>
     <div class="row">
       <div class="col-md-8">
 
 
         <div class="restaurant-details-content-name-box">
-          <h2 class="inner">Details</h2>
-          <h3>
-            <%= @group.name %>
-          </h3>
-          <br>
-          <p>
+          <h2 class="inner"><%= @group.name %> (<%= pluralize(@group.questions.count, 'Question') %>)</h2>
+          <p class='text-center'>
             <%= @group.description %>
           </p>
-          <br>
+                <p class="text-center">
+        <strong>
+          <% if @voted %>
+            You have voted. <br>
+          <% else %>
+            You have not yet voted! Please vote <%= link_to 'here.', new_group_vote_path(params[:id]) %><br>
+          <% end %>
+        </strong>
+      </p>
+          <h4 class="text-center"></h4>
           <p>
-            <strong><%= pluralize(@group.questions.count, 'Question') %></strong>
-            <br>
-            <ul class="list-group">
-              <% @group.questions.each do |q| %>
-                <li class="list-group-item">
-                  <%= q.question_text %>
-                  <br>
-                  <br>
-                  <strong>Options</strong>
-                  <br>
-                  <br>
-                    <ul class="list-group">
-                      <% q.question_options.each do |o| %>
-                          <li class="list-group-item">
-                            <%= o.option_text %>
-                            <!-- === is a placeholder separator. remove once front-end is done. -->
-                          </li>
-                      <% end %>
-                    </ul>
-                </li>
-
-              <% end %>
-            </ul>
+      <ul class="list-group">
+        <% @questions.each do |q| %>
+            <li class="list-group-item">
+              <h3 class="text-center"><%= q.question_text %></h3>
+              <br>
+              <ul class="list-group">
+              	<% q.question_options.each do |o| %>
+                <!-- < % q.question_options.highest_vote_count.each do |o| %> -->
+                  <li class="list-group-item">
+                    <strong><%= o.option_text %></strong> - <%= pluralize(o.votes.count, 'vote') %>.<br>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
+          <br>
+        <% end %>
+      </ul>
           </p>
 
         </div>
@@ -49,13 +66,9 @@
       <div class="col-md-4">
 
         <div class="restaurant-details-content-details-box">
-          <h3>Members</h3>
+          <h3><%= pluralize(@group.users.count, 'Member')%> (<%= @total_votes %> have voted.)</h3>
           <table>
-            <tbody><tr>
-              <td>
-                <strong><%= pluralize(@group.users.count, 'Member')%>:</strong>
-              </td>
-            </tr>
+            <tbody>
             <tr>
               <td>
                 <% @group.users.each do |m| %>
@@ -71,7 +84,10 @@
           <br>
           <%= link_to "Vote", new_group_vote_path(@group.id), class: "btn btn-info" %><br>
           <br>
-          <%= link_to "View Vote Results", group_votes_path(@group.id), class: "btn btn-success" %><br>
+
+          </div>
+        </div>
+      <% end %>
         </div>
       </div>
 
