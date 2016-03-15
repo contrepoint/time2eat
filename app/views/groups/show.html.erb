@@ -1,26 +1,36 @@
 <div class='container'>
+  <section class="restaurant-details-banner-section">
+    <div class="black-filter">
+
+    </div>
+    <div class="container restaurant-details-banner-container">
+      <div class="content-box">
+        <h2>Group Details</h2>
+        <br>
+        <%= form_for :search, url: searches_path ,:html => {:class => 'form-horizontal'} do |f| %>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Find</label>
+            <div class="col-sm-9">
+              <%= f.text_field :search_for,class:"form-control", :placeholder => "Type of Food" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">At</label>
+            <div class="col-sm-9">
+              <%= f.text_field :location,class:"form-control", :placeholder => "Location" %>
+            </div>
+          </div>
+          <div class="form-group">
+              <%= button_tag(type: "submit", class: "btn btn-success") do %>
+                  Search
+              <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
   <br>
-    <h2 class="text-center">Group Details</h2>
-    <br>
-              <%= form_for :search, url: searches_path ,:html => {:class => 'form-horizontal'} do |f| %>
-        <div class="form-group">
-          <label>Find</label>
-          <div>
-            <%= f.text_field :search_for,class:"form-control", :placeholder => "Type of Food" %>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>At</label>
-          <div>
-            <%= f.text_field :location,class:"form-control", :placeholder => "Location" %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div>
-            <%= button_tag(type: "submit", class: "btn btn-success") do %>
-            	Search
-            <% end %>
-    <br>
+
     <div class="row">
       <div class="col-md-8">
 
@@ -87,7 +97,6 @@
 
           </div>
         </div>
-      <% end %>
         </div>
       </div>
 
@@ -101,5 +110,3 @@
 
 
 	</div>
-
-</div>

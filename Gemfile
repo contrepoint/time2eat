@@ -43,6 +43,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # for yelp and google map integration
 gem 'yelp', require: 'yelp'
 gem 'gon'
+gem "table_print"
 
 # Use Unicorn as the app server
 # gem 'unicorn'

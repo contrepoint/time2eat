@@ -8,17 +8,15 @@ class GroupsController < ApplicationController
 
   def create
 		group = Group.new(group_params)
-
+<<<<<<< HEAD
 		group.made_by_id = current_user.id
-
+		members = params[:group][:user_email]
+=======
 		members = params[:group][:members]
-
+>>>>>>> f1f01b3a6f8c9029347577a43b577f59b9d0cbdf
 		members_array = members.split(',').collect{|x| x.strip || x }
 
 		if group.save
-
-			UsersGroup.create!(user_id: current_user.id,group_id: group.id,role: "admin")
-
 			members_array.each do |x|
 				users_group = UsersGroup.new(user_id: User.find_by(username: x).id, group_id: group.id)
 				if users_group # username exists
@@ -55,10 +53,10 @@ class GroupsController < ApplicationController
   end
 
   def edit
-  	user = UsersGroup.where(group_id: params[:id], user_id: current_user.id)
+  	user = UsersGroup.find_by(group_id: params[:id], user_id: current_user.id)
   	if user
   		@group = Group.find(params[:id])
-			@current_user_role = UsersGroup.find_by(user_id: current_user.id).role
+  		@group = Group.find(params[:id])
   		@users = @group.users.all
   	else
   		redirect_to groups_path
@@ -90,51 +88,11 @@ class GroupsController < ApplicationController
 		user_to_delete = UsersGroup.find_by(user_id: user_id,group_id: group_id)
 
 		if user_to_delete.destroy
-			flash[:success] = "Success delete user from this group"
-			redirect_to edit_group_url(group_id)
+			flash.now[:success] = "Success delete user from this group"
+			render 'edit'
 		else
-			flash[:danger] = "Error delete user"
-			redirect_to edit_group_url(group_id)
-		end
-
-	end
-
-	def add_user_to_group
-		#user_to_add = User.find_by(username: params["username"])
-
-		error_return = { content:"errors add user" }
-
-		respond_to do |format|
-			if user_to_add = User.find_by(username: params["username"])
-
-				unless UsersGroup.find_by(user_id: user_to_add.id, group_id: params["group"])
-					group_to_add = UsersGroup.new(user_id: user_to_add.id, group_id: params["group"])
-					group_to_add.role = 'user'
-
-					if group_to_add.save
-						#format.html { redirect_to @product, notice: "Save process completed!" }
-						# format.json { status: :created }
-						#format.json { render :json => true }
-						flash[:success] = "Success Add member"
-
-						success_return = { "window_location":"#{edit_group_url(params["group"])}" }
-
-						format.json { render :json => success_return }
-					else
-						# format.html {
-						#   flash.now[:notice]="Save proccess coudn't be completed!"
-						#   render :new
-						# }
-						format.json { render :json => error_return, :status => :unprocessable_entity }
-					end
-				else
-					error_return = { content:"This user already belong to this group" }
-					format.json { render :json => error_return, :status => :unprocessable_entity }
-				end
-			else
-				error_return = { content:"Can not find this user" }
-				format.json { render :json => error_return, :status => :unprocessable_entity }
-			end
+			flash.now[:danger] = "Error delete user"
+			render 'edit'
 		end
 
 	end
@@ -148,9 +106,5 @@ class GroupsController < ApplicationController
 	def check_user_own_group
 
 	end
-
-	# def add_user_group_params
-	# 	params.permit(:user_id, :group_id)
-	# end
 
 end

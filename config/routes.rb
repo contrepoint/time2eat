@@ -30,4 +30,7 @@ get 'votes/test2' => 'votes#test2'
 
   #### for layout test
 
+  delete '/group/:group_id/user/:user_id' => 'groups#deleteuser_from_group' , :as => :delete_user_group
+  post '/group/add_user' => 'groups#add_user_to_group'
+
 end
