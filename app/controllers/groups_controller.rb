@@ -38,6 +38,8 @@ class GroupsController < ApplicationController
   	user = UsersGroup.find_by(group_id: params[:id], user_id: current_user.id)
   	if user
   		@group = Group.find(params[:id])
+  		@group = Group.find(params[:id])
+  		@users = @group.users.all
   	else
   		redirect_to groups_path
   	end
