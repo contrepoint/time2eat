@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f6a4702-3d8e-427a-896d-ab37b3cab5c8" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/main.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/main.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/groups/show.html.erb" afterPath="$PROJECT_DIR$/app/views/groups/show.html.erb" />
     </list>
     <ignored path="next_final_project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,8 +38,8 @@
       <file leaf-file-name="main.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/main.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.91020405">
-              <caret line="453" column="16" selection-start-line="453" selection-start-column="16" selection-end-line="453" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.40136054">
+              <caret line="443" column="19" selection-start-line="443" selection-start-column="19" selection-end-line="443" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -69,6 +71,18 @@
             <state vertical-scroll-proportion="-9.444445">
               <caret line="117" column="12" selection-start-line="117" selection-start-column="12" selection-end-line="117" selection-end-column="12" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/groups/show.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.5161295">
+              <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,7 +141,6 @@
         <option value="$PROJECT_DIR$/app/views/votes/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouttest/search_details.html.erb" />
         <option value="$PROJECT_DIR$/app/views/questions/new.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/groups/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/searches/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/groups/new.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20160315073908_add_made_by_user_to_group.rb" />
@@ -142,6 +155,7 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/groups_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/groups/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/groups/show.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/main.scss" />
       </list>
     </option>
@@ -1111,14 +1125,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/groups/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41470587">
-          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/questions/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.096774">
@@ -1263,10 +1269,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/groups/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5161295">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.91020405">
-          <caret line="453" column="16" selection-start-line="453" selection-start-column="16" selection-end-line="453" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.40136054">
+          <caret line="443" column="19" selection-start-line="443" selection-start-column="19" selection-end-line="443" selection-end-column="19" />
           <folding />
         </state>
       </provider>
