@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 get 'votes/test' => 'votes#test'
 get 'votes/test2' => 'votes#test2'
 
+
+	post '/mailinglists' => 'mailinglists#create'
+
 	resources :searches, only: [:index, :create]
 
   resources :groups do
