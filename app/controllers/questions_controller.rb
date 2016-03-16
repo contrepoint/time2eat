@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
   def create
   	q = Question.new(question_params)
   	q.group_id = params[:group_id]
-  	byebug
+  	# byebug
   	if q.save
   		q_options_arr = params[:question][:question_options].split(',').collect { |x| x.strip || x }
   		q_options_arr.each do |x|
