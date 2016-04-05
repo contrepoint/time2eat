@@ -23,7 +23,7 @@ Deployed [here](http://time2eat1.herokuapp.com/).
 ## App Flow
 
 ### Landing Page
-* Explains the
+* Succintly explains the app
 * User can enter their email to subscribe to time2eat updates
 
 ### Sign Up / Log In
